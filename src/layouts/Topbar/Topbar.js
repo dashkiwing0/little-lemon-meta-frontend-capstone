@@ -1,12 +1,18 @@
 import React from "react";
 import "./Topbar.css";
 import Logo from "../../assets/Logo.svg";
-
+import { useNavigate } from "react-router-dom";
 const Topbar = () => {
+  const navigate = useNavigate();
+
+  const onClickImage = () => {
+    navigate("/");
+  };
+
   return (
     <header className="topbar">
       <div className="logo">
-        <img src={Logo} alt="logo" height={50} />
+        <img src={Logo} alt="logo" height={50} onClick={onClickImage} />
       </div>
       <nav className="nav">
         <ul>
@@ -31,7 +37,7 @@ const Topbar = () => {
             </a>
           </li>
           <li>
-            <a href="/order" className="link">
+            <a href="/orders" className="link">
               Order Online
             </a>
           </li>
