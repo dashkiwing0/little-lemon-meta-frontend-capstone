@@ -1,14 +1,14 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import Footer from "./Footer";
 
 describe("Footer component", () => {
   test("renders the Footer component with correct links and contact information", () => {
     render(
-      <Router>
+      <MemoryRouter>
         <Footer />
-      </Router>
+      </MemoryRouter>
     );
 
     // Check if the logo is rendered
@@ -31,7 +31,9 @@ describe("Footer component", () => {
     expect(loginLink).toBeInTheDocument();
 
     // Check if the contact information is rendered
-    const contactInfo = screen.getAllByText(/123-456-7890|little.lemon@lemon.com/);
+    const contactInfo = screen.getAllByText(
+      /123-456-7890|little.lemon@lemon.com/
+    );
     expect(contactInfo).toHaveLength(2);
 
     // Check if the social media links are rendered correctly
